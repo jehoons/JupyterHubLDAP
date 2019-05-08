@@ -20,9 +20,6 @@ RUN jupyter labextension install @jupyterlab/hub-extension
 RUN pip install jupyterhub-ldapauthenticator
 RUN apt update && apt install ldap-utils -y 
 
-# RUN adduser --disabled-password --gecos '' jehoon_song
-# RUN adduser --disabled-password --gecos '' minkyu_shim
-
 ENV JUPYTERHUB_HOME=/srv/jupyterhub
 
 # for LDAP 
@@ -36,11 +33,11 @@ COPY lets-ldap /usr/local/bin/lets-ldap
 RUN chmod 700 /usr/local/bin/lets-ldap
 RUN chown root:root /usr/local/bin/lets-ldap
 RUN export DEBIAN_FRONTEND=gtk
-COPY startup.sh /startup.sh
-RUN chmod +x /startup.sh
+COPY startup.sh $JUPYTERHUB_HOME/startup.sh
+RUN chmod +x $JUPYTERHUB_HOME/startup.sh
 
-WORKDIR /srv/jupyterhub
+WORKDIR $JUPYTERHUB_HOME
+
 USER root
-ENTRYPOINT ["/startup.sh"]
 
-
+ENTRYPOINT ["/srv/jupyterhub/startup.sh"]
