@@ -1,0 +1,7 @@
+CLIENT_ID=
+CLIENT_SECRET=
+BASE_DN=ou=users,o=,dc=jumpcloud,dc=com
+BASE_GROUP=ou=groups,o=,dc=jumpcloud,dc=com?sub
+URI=ldaps://ldap.jumpcloud.com:636/
+ROOT_ADDCOUNT=uid=cloud1,ou=users,o=,dc=jumpcloud,dc=com
+ROOT_PASSWORD=

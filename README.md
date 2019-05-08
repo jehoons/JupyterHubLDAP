@@ -1,1 +1,1 @@
-# JupyterHubLDAP
+# ResearchNoteHub
