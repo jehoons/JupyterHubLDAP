@@ -9,6 +9,6 @@ Copy env-file.example to env-file. then, edit it properly.
 sudo ./JupyterHubLDAP.sh update [-d]
 ```
 
-The option -d is for daemon mode of the JupyterHub. 
+The option -`d` is for daemon mode of the JupyterHub. 
 
 J. 
