@@ -27,6 +27,9 @@ RUN apt-get update && apt-get upgrade -y && \
 	apt-get install -y nano openssh-server openssh-client sudo git wget curl whiptail
 RUN DEBIAN_FRONTEND=noninteractive apt-get install libpam-ldap nscd -y
 
+# you can install additional package here. 
+RUN apt update && apt install vim -y 
+
 # file copy and permission: 
 COPY jupyterhub_config.py /srv/jupyterhub/jupyterhub_config.py
 COPY lets-ldap /usr/local/bin/lets-ldap
