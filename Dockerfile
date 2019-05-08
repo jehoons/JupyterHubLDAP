@@ -30,6 +30,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install libpam-ldap nscd -y
 # you can install additional package here. 
 RUN apt update && apt install vim -y 
 
+# SSL 
+# RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+COPY letsencrypt /etc/letsencrypt
+
 # file copy and permission: 
 COPY jupyterhub_config.py /srv/jupyterhub/jupyterhub_config.py
 COPY lets-ldap /usr/local/bin/lets-ldap
@@ -44,3 +48,4 @@ WORKDIR $JUPYTERHUB_HOME
 USER root
 
 ENTRYPOINT ["/srv/jupyterhub/startup.sh"]
+# ENTRYPOINT ["bash"]
